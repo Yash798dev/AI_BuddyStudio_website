@@ -1,0 +1,4 @@
+backend/node_modules
+frontend/
+webapp/.angular
+webapp/node_modules
