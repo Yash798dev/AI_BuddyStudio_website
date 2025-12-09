@@ -1,0 +1,151 @@
+<!-- Registration Form Section -->
+<section class="registration-form-section">
+  <div class="container">
+    <!-- Header Banner -->
+    <div class="header-banner">
+      <h1 class="banner-title">
+        CONGRATS! YOU ARE JUST ONE STEP AWAY FROM <span class="highlight-orange">MASTERING AI TOOLS</span>
+      </h1>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Workshop Description -->
+      <div class="workshop-description">
+        <p class="description-text">Anyone from any field can attend this workshop.</p>
+
+        <div class="pricing-section">
+          <p class="pricing-text">
+            Simply Pay <span class="original-price"><span style="text-decoration: line-through;text-decoration-thickness: 2px;">Rs. 929 </span></span> <span class="current-price">₹9 + GST</span> and Get Started
+          </p>
+        </div>
+
+        <div class="urgency-section">
+          <p class="urgency-text">Time is running out. Reserve your seat now!</p>
+        </div>
+      </div>
+
+      <!-- Registration Form -->
+      <div class="registration-form-container">
+        <div class="form-wrapper">
+          <!-- Form Header -->
+          <div class="form-header">
+            <div class="be10x-logo">
+              <span class="logo-text">AIBuddyStudio</span>
+            </div>
+            <h3 class="form-title">AI TOOLS WORKSHOP</h3>
+          </div>
+
+          <!-- Registration Form -->
+          <form class="registration-form" (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+            <!-- Full Name Field -->
+            <div class="form-group">
+              <label for="fullName" class="form-label">Full Name <span class="required">*</span></label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                class="form-input"
+                placeholder="Your Name"
+                [(ngModel)]="formData.fullName"
+                required
+                #fullName="ngModel">
+              <div class="error-message" *ngIf="fullName.invalid && fullName.touched">
+                Full name is required
+              </div>
+            </div>
+
+            <!-- Email Address Field -->
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="example@example.com"
+                [(ngModel)]="formData.email"
+                required
+                email
+                #email="ngModel">
+              <div class="error-message" *ngIf="email.invalid && email.touched">
+                Valid email address is required
+              </div>
+            </div>
+
+            <!-- Mobile Number Field -->
+            <div class="form-group">
+              <label for="mobile" class="form-label">Mobile Number (WhatsApp Number) <span class="required">*</span></label>
+              <div class="phone-input-wrapper">
+                <div class="country-code">
+                  <img src="assets/icons8-india-96.png" alt="India" class="flag-icon">
+                  <span class="code-text">+91</span>
+                </div>
+                <input
+                  type="tel"
+                  id="mobile"
+                  name="mobile"
+                  class="form-input phone-input"
+                  placeholder="Mobile number"
+                  [(ngModel)]="formData.mobile"
+                  required
+                  pattern="[0-9]{10}"
+                  #mobile="ngModel">
+              </div>
+              <div class="error-message" *ngIf="mobile.invalid && mobile.touched">
+                Valid 10-digit mobile number is required
+              </div>
+            </div>
+
+            <!-- Age Field -->
+            <div class="form-group">
+              <label for="age" class="form-label">Age <span class="required">*</span></label>
+              <select
+                id="age"
+                name="age"
+                class="form-select"
+                [(ngModel)]="formData.age"
+                required
+                #age="ngModel">
+                <option value="" disabled>Select your age group</option>
+                <option value="18-25">18-25 years</option>
+                <option value="26-35">26-35 years</option>
+                <option value="36-45">36-45 years</option>
+                <option value="46-55">46-55 years</option>
+                <option value="55+">55+ years</option>
+              </select>
+              <div class="error-message" *ngIf="age.invalid && age.touched">
+                Please select your age group
+              </div>
+            </div>
+
+            <!-- WhatsApp Updates Notice -->
+            <div class="whatsapp-notice">
+              <span class="notice-text">You will get updates on your Whatsapp</span>
+              <span class="whatsapp-icon">📱</span>
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="submit-button"
+              [disabled]="registrationForm.invalid || isSubmitting">
+              <span *ngIf="!isSubmitting">Next</span>
+              <span *ngIf="isSubmitting">Processing...</span>
+            </button>
+
+            <!-- Terms and Privacy -->
+            <div class="terms-section">
+              <p class="terms-text">
+                By proceeding you agree to our
+                <a href="#" class="terms-link">Terms</a>,
+                <a href="#" class="terms-link">Privacy</a> &
+                <a href="#" class="terms-link">Refund Policy</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
